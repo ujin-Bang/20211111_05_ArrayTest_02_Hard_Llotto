@@ -111,7 +111,7 @@ public class MainDrive {
 					
 //					임시 - 무조건 사용
 					if(isDuplOk) {
-						System.out.println("랜덤숫자 :" + randomNum);
+//						System.out.println("랜덤숫자 :" + randomNum);
 
 //						제대로 된 랜덤 추출 => 당첨번호로 사용
 						winLottoNumbers[i] = randomNum;
@@ -145,6 +145,31 @@ public class MainDrive {
 					bonusNum = randomNum;
 					break;//보너스 번호 추첨 종료
 				}
+			}
+//			당첨 번호들을 작은 수~ 큰 수(오름차순)로 정렬(Bubble sort 활용)
+			for (int i = 0 ; i < winLottoNumbers.length; i++) {
+				
+				
+//				j+1 번 칸에 접근 -> 배열 범위를 벗어날 위험이 있다. -> j의 범위를 길이 -1직전 까지만 가도록.
+				for(int j=0 ; j < winLottoNumbers.length-1 ; j++) {
+					
+//					j : 0 -> 당첨번호[0]/ 당첨번호[1] 비교 ,순서가 잘못되었다면 자리 바꾸니
+					if(winLottoNumbers[j] > winLottoNumbers[j+1]) {
+						
+						int backUp = winLottoNumbers[j];
+						winLottoNumbers[j] = winLottoNumbers[j+1];
+						winLottoNumbers[j+1] = backUp;
+					}
+					
+				}
+				
+			}
+			
+			
+			
+//			당첨 번호 목록도 출력
+			for (int winNum : winLottoNumbers) {
+				System.out.println("당첨번호 :" + winNum);
 			}
 			
 			System.out.println("보너스 번호 :  "+ bonusNum);
