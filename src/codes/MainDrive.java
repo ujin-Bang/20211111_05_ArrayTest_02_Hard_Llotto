@@ -28,9 +28,26 @@ public class MainDrive {
 //				검사1 . 1~45의 범위 맞는가? 결과를 boolean으로 저장
 				boolean isRangeOK = (1 <= inputNum) && (inputNum <= 45);
 				
+//				검사2. 이미 입력한 숫자인가? 중복검사 결과를 boolean으로 저장.
 				
-//				임시로 범위 검사만 징행
-				if (isRangeOK) {
+//				일단 써도 괜찮다 해뒀다가 -> 내 입력 목록에 지금 입력한 숫자가 들어있나? 찾아보자
+//				같은 숫자를 발견했다? 쓰면 안된다고 말 변경
+
+				boolean isDuplOk = true;
+				
+//				입력 숫자 목록(배열) 조회 -> for - each문 활용
+				for (int num : myInputNumbers) {
+					
+//					꺼내온 숫자가 입력한 숫자랑 같은가? => 같다면? 중복발견!
+					if(num == inputNum) {
+//					중복 검사 탈락!
+						isDuplOk = false;
+					}
+				}
+				
+				
+//				범위 검사도 중복검사도 통과하면 숫자 대입( 사용처리)
+				if (isRangeOK && isDuplOk ) {
 					
 //					써도 되는 숫자를 입력했다
 					myInputNumbers[i] = inputNum;
