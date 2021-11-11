@@ -72,6 +72,14 @@ public class MainDrive {
 //		
 		}
 		
+//		6개의 숫자 입력 완료됨
+		
+//		당첨 번호 임시로 6개 숫자 직접 타이핑 (하드코딩)
+		
+		int[] winLottoNumbers = { 2, 13, 20, 30, 31, 41 };
+		
+		
+		
 		
 	}
 }
