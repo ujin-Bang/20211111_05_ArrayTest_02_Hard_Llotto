@@ -130,7 +130,7 @@ public class MainDrive {
 			
 			while (true) {
 //				1~45숫자 랜던
-				int randomNum =(int)))Math.random()*45+1);
+				int randomNum =(int)(Math.random()*45+1);
 				
 				
 //				당첨 번호 안에 이미 있는지?
@@ -143,9 +143,13 @@ public class MainDrive {
 				}
 				if (isDuplOk) {
 					bonusNum = randomNum;
-					break;
+					break;//보너스 번호 추첨 종료
 				}
 			}
+			
+			System.out.println("보너스 번호 :  "+ bonusNum);
+			
+//			몇등인지 판단, 몇개의 숫자가 같은지?
 		
 		int correctCount = 0;
 		
@@ -173,20 +177,51 @@ public class MainDrive {
 		if(correctCount == 6) {
 			System.out.println("1등!!");
 		}
+		
 		else if(correctCount == 5) {
+
 			
-			System.out.println("3등");
+//			임시로 3등처리
+//			System.out.println("3등");
 			
+			
+//		실제 보너스 번호로 당첨 여부 => 맞으면 2등 아니면 3등	
+			
+//			보너스 번호가 내 입력한 번호중 하나로 들어 있는가?
+			
+//			 못 맞췄다고 전제했다가 -> 내 번호에서 찾으면 맞춘걸로
+			boolean isBonusCorrect =false;
+			
+			for( int myNum : myInputNumbers) {
+				
+				if(bonusNum ==myNum) {
+					isBonusCorrect =true;
+				}
+			}
+//			 당첨 맞다 :2 등 ,아니다 :3등
+			if (isBonusCorrect) {
+				System.out.println("2등");
+			}
+			else {
+				System.out.println("3등");
+			}
+			
+//			
 		}
+		
+		
 		else if(correctCount ==4) {
 			System.out.println("4등");
 		}
+		
 		else if(correctCount == 3) {
 			System.out.println("5등");
 		}
+		
 			else if(correctCount == 2) {
 				System.out.println("6등");
 		}
+		
 		else {
 			System.out.println("낙첨입니다");
 		}
