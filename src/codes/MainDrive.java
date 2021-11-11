@@ -21,7 +21,7 @@ public class MainDrive {
 //				안내문구 -> 1번재 숫자 입력 : , 2번째 숫자 입력 :...
 				System.out.println(i +1 +"번째 숫자 입력 :");
 				
-				int inputNum = myScanner.nextInt();
+ 				int inputNum = myScanner.nextInt();
 				
 //				제약 조건 통과했는지 ? 검사
 //				검사1 . 1~45의 범위 맞는가? 결과를 boolean으로 저장
@@ -123,7 +123,29 @@ public class MainDrive {
 				}
 			}
 		
-		
+		//보너스 번호도 추첨
+//			1~45 랜덤 + 당첨 번호와 중복 X
+			int bonusNum= 0;
+//			하나의 보너스 번호를 제대로 뽑을 때가지 반복
+			
+			while (true) {
+//				1~45숫자 랜던
+				int randomNum =(int)))Math.random()*45+1);
+				
+				
+//				당첨 번호 안에 이미 있는지?
+				boolean isDuplOk = true ;
+				for (int winNum : winLottoNumbers) {
+					if(randomNum ==winNum) {
+						isDuplOk = false ;
+							
+					}
+				}
+				if (isDuplOk) {
+					bonusNum = randomNum;
+					break;
+				}
+			}
 		
 		int correctCount = 0;
 		
