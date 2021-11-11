@@ -78,8 +78,30 @@ public class MainDrive {
 		
 		int[] winLottoNumbers = { 2, 13, 20, 30, 31, 41 };
 		
+//		몇 등인지 판단 -> 몇 개의 숫자가 같은가?
 		
+		int correctCount = 0;
 		
+//		내 번호를 하나 들고 -> 당첨번호 6개를 비교해 보자. (하나씩 비교를 6번 반복) -> 내 번호 6개에 대해 반복
+		for(int myNum : myInputNumbers) {
+			
+//			당첨번호 6개 꺼내보자.
+			
+			for ( int winNum : winLottoNumbers) {
+//				내 번호와 당첨번호가 같은가? => 맞췄나?
+				
+				if( winNum ==myNum) {
+					
+//					 맞춘 숫자를 한개 더 발견
+					correctCount++;
+				}
+				
+				
+				
+			}
+			
+		}
 		
+//		맞춘 
 	}
 }
